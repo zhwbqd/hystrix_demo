@@ -26,8 +26,13 @@ public class HelloWorldCommand extends HystrixCommand<String> {
         return "Hello " + name + " thread:" + Thread.currentThread().getName();
     }
 
+}
+
+class Test {
+
     //调用实例, 每个Command只能被调用一次
     public static void main(String[] args) throws Exception {
+
         //case1: 同步调用
         HelloWorldCommand helloWorldCommand = new HelloWorldCommand("World");
         String result = helloWorldCommand.execute();
